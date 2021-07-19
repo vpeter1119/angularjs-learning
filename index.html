@@ -9,7 +9,16 @@
         <div class="main" ng-controller="MainController">
             <h1>{{ title }}</h1>
             <button class="btn" ng-click="parse()">Parse</button>
-            <p>{{ result | json }}</p>
+            <table>
+                <tr>
+                    <th>Year</th>
+                    <th>Temperature</th>
+                </tr>
+                <tr ng-repeat="year in years">
+                    <td>{{ year.year }}</td>
+                    <td>{{ year.data }}</td>
+                </tr>
+            </table>
         </div>
 
         <!-- Modules -->
