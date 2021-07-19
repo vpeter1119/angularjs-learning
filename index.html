@@ -6,29 +6,39 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@3.4.1/dist/chart.min.js"></script>
     <title>Angular JS Testing</title>
 </head>
-    <body ng-app="myApp">
-        <div class="main" ng-controller="MainController">
-            <h1>{{ title }}</h1>
-            <button class="btn" ng-click="parse()">Parse</button>
-            <table>
-                <tr>
-                    <th>Year</th>
-                    <th>Temperature</th>
-                </tr>
-                <tr ng-repeat="year in years">
-                    <td>{{ year.year }}</td>
-                    <td>{{ year.data }}</td>
-                </tr>
-            </table>
+<body ng-app="myApp">
+    <div class="main" ng-controller="MainController">
+        <hello title="title"></hello>
+        <button class="btn" ng-click="parse()">Parse</button>
+        <div ng-if="parsed">
+            <charty films="films"></charty>
         </div>
+        <table style="border: 1px solid;" ng-if="parsed">
+            <tr>
+                <th style="border: 1px solid;">Year</th>
+                <th style="border: 1px solid;">Score</th>
+                <th style="border: 1px solid;">Title</th>
+            </tr>
+            <tr ng-repeat="film in films">
+                <td style="border: 1px solid;">{{ film.Year }}</td>
+                <td style="border: 1px solid;">{{ film.Score }}</td>
+                <td style="border: 1px solid;">{{ film.Title }}</td>
+            </tr>
+        </table>
+    </div>
 
-        <!-- Modules -->
-        <script src="js/app.js"></script>
+    <!-- Modules -->
+    <script src="js/app.js"></script>
 
-        <!-- Controllers -->
-        <script src="js/controllers/MainController.js"></script>
+    <!-- Controllers -->
+    <script src="js/controllers/MainController.js"></script>
 
-        <!-- Services -->
+    <!-- Directives -->
+    <script src="js/directives/hello.js"></script>
+    <script src="js/directives/dataChart.js"></script>
 
-    </body>
+    <!-- Services -->
+    <!-- Other -->
+
+</body>
 </html>
