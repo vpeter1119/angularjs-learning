@@ -1,3 +1,4 @@
 data
 .vs
 /lib
+/node_modules
