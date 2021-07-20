@@ -1,9 +1,8 @@
-app.controller('MainController', ['$scope', function ($scope) {
+app.controller('MainController', ['$scope', 'aggregate', function ($scope, aggregate) {
     $scope.title = 'Robert de Niro Movie Ratings';
     $scope.parsed = false;
     $scope.films = [];
-    $scope.labels = [];
-    $scope.data = [];
+    $scope.msg = 0;
     $scope.parse = function() {
         Papa.parse('data/deniro.csv', {
             delimiter: ', ',
@@ -12,12 +11,9 @@ app.controller('MainController', ['$scope', function ($scope) {
             complete: function (results) {  
                 films = results.data;
                 $scope.films = films;
-                $scope.labels = films.map(film => parseInt(film.Year));
-                $scope.data = films.map(film => parseInt(film.Score));
+                $scope.msg = aggregate.length(films);
                 $scope.parsed = true;
                 $scope.$apply();
-                console.log($scope.labels);
-                console.log($scope.data);
             }
         });
     }
