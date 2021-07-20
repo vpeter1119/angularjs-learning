@@ -1,0 +1,26 @@
+{
+  "name": "angularjs-learning",
+  "version": "1.0.0",
+  "description": "A simple project to learn Angular.js, CSV parsing and displaying information via charts.",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vpeter1119/angularjs-learning.git"
+  },
+  "author": "Peter Vertesi <vpeter1119@gmail.com>",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/vpeter1119/angularjs-learning/issues"
+  },
+  "homepage": "https://github.com/vpeter1119/angularjs-learning#readme"
+}
