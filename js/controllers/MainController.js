@@ -1,23 +1,20 @@
 app.controller('MainController', ['$scope', function ($scope) {
-    $scope.title = 'Robert de Niro Movie Ratings';
+    $scope.title = 'Floods of the River Nile';
     $scope.parsed = false;
-    $scope.films = [];
-    $scope.labels = [];
-    $scope.data = [];
+    $scope.floods = [];
     $scope.parse = function() {
-        Papa.parse('data/deniro.csv', {
+        Papa.parse('data/nile.csv', {
             delimiter: ', ',
-            download: true,
+            escapeChar: '  ',
             header: true,
-            complete: function (results) {  
-                films = results.data;
-                $scope.films = films;
-                $scope.labels = films.map(film => parseInt(film.Year));
-                $scope.data = films.map(film => parseInt(film.Score));
+            download: true,
+            skipEmptyLines: true,
+            complete: function (results) {
+                floods = results.data;
+                console.log(floods);
+                $scope.floods = floods;
                 $scope.parsed = true;
                 $scope.$apply();
-                console.log($scope.labels);
-                console.log($scope.data);
             }
         });
     }

@@ -11,20 +11,9 @@
         <hello title="title"></hello>
         <button class="btn" ng-click="parse()">Parse</button>
         <div ng-if="parsed">
-            <charty films="films"></charty>
+            <floodchart floods="floods"></floodchart>
+            <p>{{ floods | json }}</p>
         </div>
-        <table style="border: 1px solid;" ng-if="parsed">
-            <tr>
-                <th style="border: 1px solid;">Year</th>
-                <th style="border: 1px solid;">Score</th>
-                <th style="border: 1px solid;">Title</th>
-            </tr>
-            <tr ng-repeat="film in films">
-                <td style="border: 1px solid;">{{ film.Year }}</td>
-                <td style="border: 1px solid;">{{ film.Score }}</td>
-                <td style="border: 1px solid;">{{ film.Title }}</td>
-            </tr>
-        </table>
     </div>
 
     <!-- Modules -->
