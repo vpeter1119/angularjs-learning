@@ -10,7 +10,8 @@ app.controller('MainController', ['$scope', function ($scope) {
             download: true,
             skipEmptyLines: true,
             complete: function (results) {
-                floods = results.data;
+                allFloods = results.data;
+                floods = allFloods.slice(100,200);
                 console.log(floods);
                 $scope.floods = floods;
                 $scope.parsed = true;
@@ -18,4 +19,5 @@ app.controller('MainController', ['$scope', function ($scope) {
             }
         });
     }
+    $scope.parse();
 }]);

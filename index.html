@@ -9,10 +9,17 @@
 <body ng-app="myApp">
     <div class="main" ng-controller="MainController">
         <hello title="title"></hello>
-        <button class="btn" ng-click="parse()">Parse</button>
+        <div>
+            <form>
+                <label for="from">From</label>
+                <input type="text" name="from" id="input-from">
+                <label for="to">To</label>
+                <input type="text" name="to" id="input-to">
+                <button class="btn" ng-click="parse()">Parse</button>
+            </form>            
+        </div>
         <div ng-if="parsed">
             <floodchart floods="floods"></floodchart>
-            <p>{{ floods | json }}</p>
         </div>
     </div>
 

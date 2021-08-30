@@ -11,8 +11,10 @@ app.directive('floodchart', function () {
 				labels: labels,
 				datasets: [{
 					label: 'Maximum Height',
-					backgroundColor: 'rgb(255, 99, 132)',
-					borderColor: 'rgb(255, 99, 132)',
+					fill: true,
+					backgroundColor: 'rgb(34,87,122)',
+					borderColor: 'rgb(34,87,122)',
+					color: 'rgb(34,87,122)',
 					data: floods.map(flood => parseInt(flood.Flood)),
 				}]
 			};
