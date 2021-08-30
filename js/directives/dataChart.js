@@ -1,23 +1,25 @@
-app.directive('charty', function () {
+app.directive('floodchart', function () {
     return {
         restrict: 'E',
         scope: {
-            films: '='
+            floods: '='
         },
         templateUrl: 'js/directives/dataChart.html',
         link: function (scope, element, attrs) {
-			const labels = films.map(film => parseInt(film.Year));
+			const labels = floods.map(flood => parseInt(flood.Year));
 			const data = {
 				labels: labels,
 				datasets: [{
-					label: 'RottenTomatoes Rating',
-					backgroundColor: 'rgb(255, 99, 132)',
-					borderColor: 'rgb(255, 99, 132)',
-					data: films.map(film => parseInt(film.Score)),
+					label: 'Maximum Height',
+					fill: true,
+					backgroundColor: 'rgb(34,87,122)',
+					borderColor: 'rgb(34,87,122)',
+					color: 'rgb(34,87,122)',
+					data: floods.map(flood => parseInt(flood.Flood)),
 				}]
 			};
 			const config = {
-				type: 'line',
+				type: 'bar',
 				data,
 				options: {}
 			};

@@ -9,22 +9,24 @@
 <body ng-app="myApp">
     <div class="main" ng-controller="MainController">
         <hello title="title"></hello>
-        <button class="btn" ng-click="parse()">Parse</button>
-        <div ng-if="parsed">
-            <charty films="films"></charty>
+        <p>Source code: <a href="https://github.com/vpeter1119/angularjs-learning" target="_blank" noopener noreferrer>https://github.com/vpeter1119/angularjs-learning</a></p>
+        <p>Data source: <a href="https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html" target="_blank" noopener noreferrer>https://people.sc.fsu.edu/~jburkardt/data/csv/csv.html</a></p>
+        <div>
+            <form>
+                <label for="from">From</label>
+                <input type="text" name="from" id="input-from" ng-model="fromInput">
+                <label for="to">To</label>
+                <input type="text" name="to" id="input-to" ng-model="toInput">
+                <button class="btn" ng-click="parse()">Show</button>
+            </form>            
         </div>
-        <table style="border: 1px solid;" ng-if="parsed">
-            <tr>
-                <th style="border: 1px solid;">Year</th>
-                <th style="border: 1px solid;">Score</th>
-                <th style="border: 1px solid;">Title</th>
-            </tr>
-            <tr ng-repeat="film in films">
-                <td style="border: 1px solid;">{{ film.Year }}</td>
-                <td style="border: 1px solid;">{{ film.Score }}</td>
-                <td style="border: 1px solid;">{{ film.Title }}</td>
-            </tr>
-        </table>
+        <div ng-if="errorMessage != null">
+            <p style="font-weight: 900; color: red;">{{errorMessage}}</p>
+        </div>
+        <div ng-if="parsed">
+            <p>Showing results from {{from}} to {{to}}:</p>
+            <floodchart floods="floods"></floodchart>
+        </div>
     </div>
 
     <!-- Modules -->
